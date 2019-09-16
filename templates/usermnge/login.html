@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet"   href = "/static/bootstrap-3.3.7-dist/css/bootstrap.css " >
+    <style type="text/css">
+
+
+        body{text-align:center}
+        .login-div{
+            width: 500px;
+            height: 200px;
+            position: absolute;
+            left:50%;
+            top:50%;
+            transform: translate(-50%, -50%);
+        }
+
+
+    </style>
+</head>
+<body>
+
+<div class="login-div">
+    <form class="form-horizontal">
+      <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+        <div class="col-sm-10">
+          <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+        <div class="col-sm-10">
+          <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <div class="checkbox">
+            <label>
+              <input type="checkbox"> Remember me
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="button" class="btn btn-default" id="t9">Sign in</button>
+        </div>
+      </div>
+    </form>
+</div>
+
+<script src="/static/js/jquery-3.4.1.min.js"></script>
+<script src="/static/bootstrap-3.3.7-dist/css/bootstrap.css"></script>
+<script>
+$(document).ready(function(){
+    $(".btn.btn-default").click(function(){
+        $.ajax({
+            url: ".",
+            type: "post",
+            data: {"email":$("#inputEmail3").val(), "password": $("#inputPassword3").val() },
+            dataType: "text",
+            success:function(data) {
+                        console.log(data)
+                    }
+        });
+    });
+
+
+
+});
+
+
+
+</script>
+
+
+
+
+</body>
+</html>
